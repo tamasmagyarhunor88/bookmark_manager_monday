@@ -8,7 +8,7 @@ describe Link do
 
     it 'returns all the links' do
       links = Link.all
-      expect(links).to include("https://www.getfitwithhunor.com")
+      expect(links).to include("http://www.google.com")
     end
   end
 end
