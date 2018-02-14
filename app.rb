@@ -8,7 +8,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_link' do
-    add_new_link(params[:new_link])
+    Link.add_new_link(params[:new_link])
+    @links = Link.all
     erb :index
   end
 
