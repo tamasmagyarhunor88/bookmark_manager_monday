@@ -16,6 +16,15 @@ We'll be using a BDD cycle (i.e. **outside-in testing**: Capybara first).
 To guide us, create some User Stories and sketch a high-level domain model.
 
 first user story:
-`
-As a user I would like to go to a website and see a list of links.
-`
+```
+As a user,
+So I can see my bookmarked pages,
+I would like see a list of links.
+```
+
+second user story:
+```
+As a user,
+So that I can personalise my Bookmark manager,
+I'd like to add links to it.
+```
