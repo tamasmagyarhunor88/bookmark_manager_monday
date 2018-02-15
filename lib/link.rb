@@ -12,7 +12,7 @@ class Link
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM links")
+    result = DatabaseConnection.query("SELECT * FROM links;")
     result.map do |row|
       Link.new(row['id'], row['url'], row['title'])
     end

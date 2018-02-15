@@ -19,7 +19,7 @@ task :setup do
     connection = PG.connect
     connection.exec("CREATE DATABASE #{ database };")
     connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEUY, url VARCHAR(60), title VARCHAR(30));")
+    connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(30));")
     rescue PG::DuplicateDatabase => error
       p error
       p "#{ database } already exists"
