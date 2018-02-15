@@ -3,6 +3,8 @@
   <input type="submit" value="Save link">
 </form>
 
+<%= flash.now[:invalid_uri] %>
+
 <ul>
   <% @links.each do |link| %>
   <li><%= link %></li>

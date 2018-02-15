@@ -11,8 +11,24 @@ describe Link do
   end
   context '.add_new_link' do
     it 'add new link to the end of bookmark list' do
-      Link.add_new_link('http:// www.testlink.com')
-      expect(Link.all).to include 'http:// www.testlink.com'
+      Link.add_new_link('http://www.testlink.com')
+      expect(Link.all).to include 'http://www.testlink.com'
+    end
+  end
+
+  describe '::validate' do
+    context "when link valid" do
+      it "returns true" do
+        link = 'https://www.goodlink.com'
+        expect(described_class.validate(link)).to eq true
+      end
+    end
+
+    context "when link not valid" do
+      it "returns false" do
+        link = 'htps://www.badlink.com'
+        expect(described_class.validate(link)).to eq false
+      end
     end
   end
 end
