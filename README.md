@@ -28,3 +28,10 @@ As a user,
 So that I can personalise my Bookmark manager,
 I'd like to add links to it.
 ```
+
+To get started
+```
+clone https://github.com/tamasmagyarhunor88/bookmark_manager_monday.git
+bundle install
+rake setup
+```

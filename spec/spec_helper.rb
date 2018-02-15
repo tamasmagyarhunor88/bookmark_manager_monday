@@ -1,6 +1,9 @@
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'rake'
+
+Rake.application.load_rakefile
 
 # Bring in the contents of app.rb file
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
@@ -14,7 +17,7 @@ Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   config.before(:each) do
-    require_relative './test_database_setup'
+    Rake::Task['test_database_setup'].execute
   end
 end
 
