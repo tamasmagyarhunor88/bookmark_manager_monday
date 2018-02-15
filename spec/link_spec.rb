@@ -3,16 +3,17 @@ require 'link'
 describe Link do
   context '#all' do
     it 'returns all the links' do
-      links = Link.all
-      expect(links.map { |link| link.url }).to include("http://www.makersacademy.com") &&
+      links = Link.all.map(&:url)
+      expect(links).to include("http://www.makersacademy.com") &&
       include("http://www.facebook.com") &&
       include("http://www.google.com")
     end
   end
   context '.add_new_link' do
     it 'add new link to the end of bookmark list' do
-      Link.add_new_link('http://www.testlink.com')
-      expect(Link.all.map { |link| link.url }).to include 'http://www.testlink.com'
+      Link.add_new_link('http://www.testlink.com', 'testlink')
+      links = Link.all.map(&:url)
+      expect(links).to include 'http://www.testlink.com'
     end
   end
 
@@ -33,9 +34,10 @@ describe Link do
   end
 
   describe '#new' do
-    subject(:link) { described_class.new(id, url) }
-    let(:id) { 'an id' }
-    let(:url) {  'an url' }
+    subject(:link) { described_class.new(id, url, title) }
+    let(:id)    { 'an id' }
+    let(:url)   { 'an url' }
+    let(:title) { 'a title' }
 
     it 'sets the @id' do
       expect(link.id).to eq id

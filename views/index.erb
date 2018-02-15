@@ -1,5 +1,6 @@
 <form action="/add_link" method="post">
-  <input type="text" name="new_link" value="http://www.what44ever.com">
+  <input type="text" name="new_link" size="30" value="http://www.what44ever.com">
+  <input type="text" size="15" name="title" value="what4ever">
   <input type="submit" value="Save link">
 </form>
 
@@ -7,6 +8,10 @@
 
 <ul>
   <% @links.each do |link| %>
-  <li><%= link.url %></li>
+  <li>
+    <a href="<%= link.url %>">
+      <%= link.title %>
+    </a>
+  </li>
   <% end %>
 </ul>

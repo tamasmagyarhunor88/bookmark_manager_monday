@@ -14,8 +14,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/add_link' do
-    link = params[:new_link]
-    flash.now[:invalid_uri] = 'URI not valid' unless Link.add_new_link(link)
+    link, title = params[:new_link], params[:title]
+    flash.now[:invalid_uri] = 'URI not valid' unless Link.add_new_link(link, title)
     @links = Link.all
     erb :index
   end
@@ -23,5 +23,3 @@ class BookmarkManager < Sinatra::Base
 
   run! if app_file == $0
 end
-
-# Link.valid(link)? Link.add_new_link(link) : flash.now
